@@ -2,5 +2,5 @@ fastai==2.7.10
 flask==1.1.2
 flask-cors
 gunicorn
-
+jinja2==3.0.3
 
