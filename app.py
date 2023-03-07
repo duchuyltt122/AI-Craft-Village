@@ -12,8 +12,8 @@ import base64
 from flask_cors import CORS, cross_origin
 
 import pathlib
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
+#temp = pathlib.PosixPath
+#pathlib.PosixPath = pathlib.WindowsPath
 
 # Khởi tạo server
 app = Flask(__name__)
