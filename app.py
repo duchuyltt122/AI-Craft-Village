@@ -11,19 +11,13 @@ from fastai.vision.all import *
 import base64
 from flask_cors import CORS, cross_origin
 
-import pathlib
+from pathlib import Path
 #temp = pathlib.PosixPath
 #pathlib.PosixPath = pathlib.WindowsPath
 
 # Khởi tạo server
 app = Flask(__name__)
 CORS(app)
-# Khai báo đường dẫn thư mục
-current_directory = os.getcwd()
-path = Path(current_directory)
-
-# Load model
-learner = load_learner(path/'export.pkl')
 
 # Khai báo hàm xử lý request detect
 @app.route('/detect', methods=['POST'])
@@ -47,5 +41,10 @@ def predict_img():
 
 # Thực thi server
 if __name__ == "__main__":
+    # Khai báo đường dẫn thư mục
+    current_directory = os.getcwd()
+    path = Path(current_directory)
+    # Load model
+    learner = load_learner(path/'export.pkl')
     app.run()
     #  app.run(debug=False, host='0.0.0.0',port=8000)
